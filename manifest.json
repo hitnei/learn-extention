@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Covid-19 Stats UK",
+    "short_name": "IEB",
+    "description": "latest covid data of UK",
+    "version": "1.0",
+    "icons": {
+        "16": "/images/icon-2.png",
+        "48": "/images/icon-2.png",
+        "128": "/images/icon-2.png"
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Latest Covid Report"
+    }
+}
