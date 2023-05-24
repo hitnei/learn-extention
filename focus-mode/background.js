@@ -9,9 +9,9 @@ const webstore = "https://developer.chrome.com/docs/webstore";
 
 // When the user clicks on the extension action
 chrome.action.onClicked.addListener(async (tab) => {
-  chrome.action.setPopup({
-    popup: "index.html",
-  });
+  // chrome.action.setPopup({
+  //   popup: "index.html",
+  // });
   if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
     // We retrieve the action badge to check if the extension is 'ON' or 'OFF'
     const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
