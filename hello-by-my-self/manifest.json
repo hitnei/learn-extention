@@ -4,5 +4,11 @@
     "name": "my first extension",
     "action": {
         "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "hi-icon.png",
+        "32": "hi-icon.png",
+        "64": "hi-icon.png",
+        "128": "hi-icon.png"
     }
 }
