@@ -10,6 +10,25 @@ const onPlay = async (e) => {
   });
 };
 
+const onDelete = async (e) => {
+  const bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
+  const activeTab = await getActiveTabUrl();
+  const bookmarkElementToDelete = document.getElementById(`bookmark-${bookmarkTime}`);
+
+  if (bookmarkElementToDelete?.parentNode) {
+    bookmarkElementToDelete.parentNode.removeChild(bookmarkElementToDelete);
+  }
+
+  chrome.tabs.sendMessage(
+    activeTab.id,
+    {
+      type: "DELETE",
+      value: bookmarkTime,
+    },
+    viewBookmarks
+  );
+};
+
 const addNewBookmark = (bookmarksElement, bookmark) => {
   const bmTitleEle = document.createElement("div");
   const newBmEle = document.createElement("div");
@@ -25,6 +44,7 @@ const addNewBookmark = (bookmarksElement, bookmark) => {
   newBmEle.setAttribute("timestamp", bookmark.time);
 
   setBookmarkAttribute("play", onPlay, controlsElement);
+  setBookmarkAttribute("delete", onDelete, controlsElement);
 
   newBmEle.appendChild(bmTitleEle);
   newBmEle.appendChild(controlsElement);
@@ -55,7 +75,6 @@ const viewBookmarks = (currentBookmarks = []) => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabUrl();
-  console.log("🚀 ~ file: popup.js ~ line 5 ~ document.addEventListener ~ activeTab", activeTab);
   const queryParameters = activeTab.url.split("?")[1];
   const urlParameters = new URLSearchParams(queryParameters);
 
