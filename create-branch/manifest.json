@@ -12,7 +12,10 @@
                 "https://*.atlassian.net/*"
             ],
             "js": [
-                "popup.js"
+                "contentScripts.js"
+            ],
+            "css": [
+                "contentStyle.css"
             ]
         }
     ],
@@ -30,5 +33,13 @@
         "default_icon": "assets/logo.png",
         "default_title": "Create branch",
         "default_popup": "popup.html"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+C",
+                "mac": "Command+Shift+C"
+            }
+        }
     }
 }
