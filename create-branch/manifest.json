@@ -1,0 +1,34 @@
+{
+    "name": "Creat Branch",
+    "version": "1.0.0",
+    "description": "Creat branch follow format",
+    "manifest_version": 3,
+    "host_permissions": [
+        "https://*.atlassian.net/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.atlassian.net/*"
+            ],
+            "js": [
+                "popup.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/logo.png"
+            ],
+            "matches": [
+                "https://*.atlassian.net/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_icon": "assets/logo.png",
+        "default_title": "Create branch",
+        "default_popup": "popup.html"
+    }
+}
