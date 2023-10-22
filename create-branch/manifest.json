@@ -3,9 +3,16 @@
     "version": "1.0.0",
     "description": "Creat branch follow format",
     "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
     "host_permissions": [
         "https://*.atlassian.net/*"
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "content_scripts": [
         {
             "matches": [
