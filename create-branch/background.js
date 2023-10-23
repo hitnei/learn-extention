@@ -3,6 +3,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const idTask = tab.url?.split("/browse/")[1];
 
     chrome.tabs.sendMessage(tabId, {
+      type: "onLoadedPage",
       idTask,
     });
   }
