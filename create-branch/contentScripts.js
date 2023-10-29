@@ -27,8 +27,10 @@
   };
 
   const addIconCopy = (idTask) => {
-    const eleParentAction = document.querySelector(`#jira-issue-header a[href='/browse/${idTask}']`)
-      ?.parentNode?.parentNode?.nextSibling;
+    const eleParentAction = document.querySelector(
+      `#jira-issue-header a[href='/browse/${idTask}']`
+    );
+
     if (!eleParentAction?.querySelector(".copyBranchIcon")) {
       const btnCopy = document.createElement("img");
       btnCopy.src = chrome.runtime.getURL("assets/logo.png");
