@@ -1,10 +1,12 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (tab.url?.includes("atlassian.net/browse/")) {
-    const idTask = tab.url?.split("/browse/")[1];
+  if (tab.url?.includes("/homing.atlassian.net/")) {
+    const idTask = tab?.url?.match(/HOM-\d{1,}/g)?.[0];
 
-    chrome.tabs.sendMessage(tabId, {
-      type: "onLoadedPage",
-      idTask,
-    });
+    if (idTask) {
+      chrome.tabs.sendMessage(tabId, {
+        type: "onLoadedPage",
+        idTask,
+      });
+    }
   }
 });
