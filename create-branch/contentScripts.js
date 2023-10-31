@@ -55,6 +55,12 @@
           addIconCopy(idTask);
         }
         break;
+      case "onCreated":
+        const id = window.location.href?.match(/HOM-\d{1,}/g)?.[0];
+        if (id) {
+          addIconCopy(id);
+        }
+        break;
       case "onChangeName":
         const { CBName } = message;
         setCBName(CBName);

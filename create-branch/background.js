@@ -10,3 +10,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
   }
 });
+
+chrome.tabs.onActivated.addListener(({ tabId }) => {
+  setTimeout(() => {
+    chrome.tabs.sendMessage(tabId, {
+      type: "onCreated",
+    });
+  }, 5000);
+});
