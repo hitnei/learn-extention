@@ -10,7 +10,7 @@
       "h1[data-testid='issue.views.issue-base.foundation.summary.heading']"
     )?.textContent;
     const currentYear = `${new Date().getFullYear()}`.slice(2, 4);
-    let currentMonth = new Date().getMonth();
+    let currentMonth = new Date().getMonth() + 1;
     currentMonth = currentMonth < 10 ? "0" + currentMonth : "" + currentMonth;
     if (typeof taskName === "string") {
       taskName =
