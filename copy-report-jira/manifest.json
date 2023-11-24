@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "Homing copy Report Jira",
+    "short_name": "Homing Report",
+    "action": {
+        "default_icon": "images/icon.png",
+        "default_title": "Homing Report",
+        "default_popup": "popup.html"
+    }
+}
