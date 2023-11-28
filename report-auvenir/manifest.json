@@ -1,0 +1,33 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "Report Auvenir",
+    "short_name": "Report Auvenir",
+    "permissions": [
+        "tabs",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://*.azure.com/DMCHosting-Auvenir-Org/AuvenirApp/_apps/hub/7pace.Timetracker.Timesheet"
+    ],
+    "action": {
+        "default_icon": "images/logo.png",
+        "default_title": "Report Auvenir"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.azure.com/DMCHosting-Auvenir-Org/AuvenirApp/_apps/hub/7pace.Timetracker.Timesheet"
+            ],
+            "js": [
+                "contentScripts.js"
+            ],
+            "css": [
+                "contentStyle.css"
+            ]
+        }
+    ]
+}
