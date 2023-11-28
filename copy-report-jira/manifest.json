@@ -1,11 +1,34 @@
 {
     "version": "1.0.0",
     "manifest_version": 3,
-    "name": "Homing copy Report Jira",
+    "name": "Homing Report Jira",
     "short_name": "Homing Report",
+    "permissions": [
+        "tabs",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://*.atlassian.net/*"
+    ],
     "action": {
         "default_icon": "images/icon.png",
         "default_title": "Homing Report",
         "default_popup": "popup.html"
-    }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.atlassian.net/*"
+            ],
+            "js": [
+                "contentScripts.js"
+            ],
+            "css": [
+                "contentStyle.css"
+            ]
+        }
+    ]
 }
